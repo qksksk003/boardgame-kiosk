@@ -31,7 +31,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 st.set_page_config(page_title="보드게임 추천 키오스크", page_icon="🎲", layout="centered")
 
 # 🎨 [개선] 상단 타이틀을 화려한 전광판 스타일 배너로 변경
-col1, col2 = st.columns([5,1])
+col1, col2 = st.columns([5.2,0.8])
 
 with col1:
     st.markdown("""
@@ -53,7 +53,28 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    st.image("images/popcornqr.png", width=110)
+    st.markdown("""
+    <div style="
+        text-align:center;
+        margin-top:6px;
+    ">
+        <div style="
+            background:#FEE500;
+            color:#3C1E1E;
+            padding:3px 6px;
+            border-radius:15px;
+            font-size:11px;
+            font-weight:bold;
+            display:inline-block;
+            white-space:nowrap;
+        ">
+            팝콘에듀 카카오톡
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.image("images/popcornqr.png", width=90)
+
 
 # 📊 [개선] 방문객 카운터를 입구 전광판 느낌의 독립적인 디자인 박스로 분리
 col_count1, col_count2 = st.columns([2, 1])
@@ -76,44 +97,44 @@ with col_count2:
 
 # --- [3] 보드게임 데이터베이스 데이터 정의 ---
 games_data = [
+    # (가250, 세300) 개별 편집 적용
     {"name": "바운스 잇!", "genre": ["파티"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "15분", "image": "images/bounceit.png", "location": "A 진열대"},
     {"name": "슈퍼스시", "genre": ["파티", "순발력", "패밀리"], "players": ["3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "20분", "image": "images/supersushi.jpg", "location": "A 진열대"},
     {"name": "포실리스", "genre": ["전략"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~5명", "time": "45분", "image": "images/fossilis.png", "location": "B 진열대"},
-    {"name": "더마인드", "genre": ["협력"], "players": ["2명", "3명", "4명"], "display_players": "2~4명", "time": "20분", "image": "images/themind.png", "location": "B 진열대"},
-    {"name": "스위스 사는 스미스씨", "genre": ["패밀리", "파티"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "30분", "image": "images/swiss.png", "location": "B 진열대"},
-    # 바이킹 시소 세로형 (220, 300) 개별 편집 적용
-    {"name": "바이킹 시소", "genre": ["패밀리", "덱스터리티"], "players": ["2명", "3명", "4명"], "display_players": "2~4명", "time": "10분", "image": "images/vikingseesaw.png", "img_size": (220, 300), "location": "A 진열대"},
+    {"name": "더마인드", "genre": ["협력"], "players": ["2명", "3명", "4명"], "display_players": "2~4명", "time": "20분", "image": "images/themind.png", "img_size": (200, 240), "location": "B 진열대"},
+    {"name": "스위스 사는 스미스씨", "genre": ["패밀리", "파티"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "30분", "image": "images/swiss.png", "img_size": (220, 260), "location": "B 진열대"},
+    {"name": "바이킹 시소", "genre": ["패밀리", "덱스터리티"], "players": ["2명", "3명", "4명"], "display_players": "2~4명", "time": "10분", "image": "images/vikingseesaw.png", "img_size": (130, 300), "location": "A 진열대"},
     {"name": "초밥 마스터", "genre": ["전략"], "players": ["2명", "3명", "4명"], "display_players": "1~4명", "time": "30분", "image": "images/sushimaster.png", "location": "A 진열대"},
-    {"name": "타코 캣 고트 치즈 피자", "genre": ["파티", '패밀리'], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~8명", "time": "15분", "image": "images/tacocat.png", "img_size": (350, 350), "location": "B 진열대"},
-    {"name": "블루 샌드 씨사이드", "genre": ["파티", "패밀리"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~5명", "time": "20분", "image": "images/bluesandsea.png", "location": "A 진열대"},
-    {"name": "촵촵 다이스", "genre": ["전략", "퍼즐"], "players": ["2명", "3명", "4명"], "display_players": "1~4명", "time": "30분", "image": "images/chopchop.png", "location": "A 진열대"},
+    {"name": "타코 캣 고트 치즈 피자", "genre": ["파티", '패밀리'], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~8명", "time": "15분", "image": "images/tacocat.png", "img_size": (370, 430), "location": "B 진열대"},
+    {"name": "블루 샌드 씨사이드", "genre": ["파티", "패밀리"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~5명", "time": "20분", "image": "images/bluesandsea.png", "img_size": (190, 300), "location": "A 진열대"},
+    {"name": "촵촵 다이스", "genre": ["전략", "퍼즐"], "players": ["2명", "3명", "4명"], "display_players": "1~4명", "time": "30분", "image": "images/chopchop.png", "img_size": (220, 300), "location": "A 진열대"},
     {"name": "차가운 그녀가 눈을 뜨기 전에", "genre": ["머더 미스터리", "추리"], "players": ["3명", "4명", "5명 이상"], "display_players": "3~6명", "time": "10분", "image": "images/sheiscold.png", "location": "B 진열대"},
-    {"name": "스틱스택", "genre": ["파티", "덱스터리티"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~10명", "time": "10분", "image": "images/stickstack.png", "location": "A 진열대"},
+    {"name": "스틱스택", "genre": ["파티", "덱스터리티"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~10명", "time": "10분", "image": "images/stickstack.png", "img_size": (190, 300), "location": "A 진열대"},
     {"name": "크라클 오라클", "genre": ["파티", "추리"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~8명", "time": "30분", "image": "images/krkork.png", "location": "B 진열대"},
-    {"name": "펭귄파티", "genre": ["전략", "패밀리"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "30분", "image": "images/penguinparty.png", "location": "B 진열대"},
+    {"name": "펭귄파티", "genre": ["전략", "패밀리"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "30분", "image": "images/penguinparty.png", "img_size": (250, 280), "location": "B 진열대"},
     {"name": "놉!놉!테이블", "genre": ["파티", "패밀리", "순발력"], "players": ["3명", "4명", "5명 이상"], "display_players": "3~8명", "time": "15분", "image": "images/nono.png", "location": "B 진열대"},
-    {"name": "궁신", "genre": ["전략", "블러핑"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~5명", "time": "20분", "image": "images/courtisans.png", "location": "B 진열대"},
-    {"name": "유비보", "genre": ["협력", "패밀리", "덱스터리티"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~8명", "time": "10분", "image": "images/yubibo.png", "location": "A 진열대"},
+    {"name": "궁신", "genre": ["전략", "블러핑"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~5명", "time": "20분", "image": "images/courtisans.png", "img_size": (160, 300), "location": "B 진열대"},
+    {"name": "유비보", "genre": ["협력", "패밀리", "덱스터리티"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~8명", "time": "10분", "image": "images/yubibo.png", "img_size": (170, 300), "location": "A 진열대"},
     {"name": "버거와썹", "genre": ["파티", "순발력"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~5명", "time": "15분", "image": "images/burger.png", "location": "B 진열대"},
     {"name": "네코지마 고양이 전봇대", "genre": ["덱스터리티", "패밀리"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "1~5명", "time": "15분", "image": "images/nekojima.png", "location": "B 진열대"},
     {"name": "셀레스티아 빅박스", "genre": ["파티", "패밀리", "푸시 유어 럭"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "30분", "image": "images/celestia.png", "location": "B 진열대"},
-    {"name": "고양이vs오이", "genre": ["파티", "패밀리", "푸시 유어 럭"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "30분", "image": "images/catvs.png", "location": "B 진열대"},
+    {"name": "고양이vs오이", "genre": ["파티", "패밀리", "푸시 유어 럭"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "30분", "image": "images/catvs.png", "img_size": (180, 300), "location": "B 진열대"},
     {"name": "캘리코", "genre": ["퍼즐", "패밀리", "전략"], "players": ["2명", "3명", "4명"], "display_players": "1~4명", "time": "30~45분", "image": "images/calico.png", "location": "B 진열대"},
-    {"name": "육식동물짓이야!", "genre": ["추리", "패밀리", "블러핑"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "1~5명", "time": "10분", "image": "images/a carnivore did it.png", "location": "B 진열대"},
-    {"name": "쿵쿵쿵 코끼리 해적단", "genre": ["덱스터리티", "패밀리", "파티"], "players": ["2명", "3명", "4명"], "display_players": "2~4명", "time": "15분", "image": "images/stompstompstomp.png", "location": "B 진열대"},
+    {"name": "육식동물짓이야!", "genre": ["추리", "패밀리", "블러핑"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "1~5명", "time": "10분", "image": "images/a carnivore did it.png", "img_size": (200, 300), "location": "B 진열대"},
+    {"name": "쿵쿵쿵 코끼리 해적단", "genre": ["덱스터리티", "패밀리", "파티"], "players": ["2명", "3명", "4명"], "display_players": "2~4명", "time": "15분", "image": "images/stompstompstomp.png", "img_size": (220, 300), "location": "B 진열대"},
     {"name": "방방 날아라 돼지!", "genre": ["덱스터리티", "패밀리", "파티"], "players": ["2명", "3명"], "display_players": "2~3명", "time": "10~20분", "image": "images/bangbangpig.png", "location": "B 진열대"},
-    {"name": "트리올렛", "genre": ["퍼즐", "패밀리", "전략"], "players": ["2명", "3명", "4명"], "display_players": "2~4명", "time": "30분", "image": "images/triolet.png", "location": "B 진열대"},
-    {"name": "사운드박스", "genre": ["협력", "파티", "추리"], "players": ["3명", "4명", "5명 이상"], "display_players": "3~7명", "time": "30분", "image": "images/soundbox.png", "location": "B 진열대"},
-    {"name": "3초 트라이", "genre": ["파티", "패밀리", "순발력"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~7명", "time": "10분", "image": "images/3second try.png", "img_size": (220, 300), "location": "C 진열대"},
-    {"name": "원더볼링", "genre": ["패밀리", "덱스터리티"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "15분", "image": "images/bowling.png", "img_size": (220, 300), "location": "C 진열대"},
-    {"name": "토마토마토", "genre": ["패밀리", "파티", "순발력"], "players": ["3명", "4명", "5명 이상"], "display_players": "3~6명", "time": "20분", "image": "images/tomatomato.png", "location": "C 진열대"},
-    {"name": "본파이어 파티", "genre": ["파티", "패밀리", "전략"], "players": ["2명", "3명", "4명"], "display_players": "2~4명", "time": "5분", "image": "images/fire.png", "location": "C 진열대"},
-    {"name": "스카우트", "genre": ["패밀리", "전략"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~5명", "time": "20분", "image": "images/scout.png", "location": "C 진열대"},
+    {"name": "트리올렛", "genre": ["퍼즐", "패밀리", "전략"], "players": ["2명", "3명", "4명"], "display_players": "2~4명", "time": "30분", "image": "images/triolet.png", "img_size": (250, 260), "location": "B 진열대"},
+    {"name": "사운드박스", "genre": ["협력", "파티", "추리"], "players": ["3명", "4명", "5명 이상"], "display_players": "3~7명", "time": "30분", "image": "images/soundbox.png", "img_size": (180, 300), "location": "B 진열대"},
+    {"name": "3초 트라이", "genre": ["파티", "패밀리", "순발력"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~7명", "time": "10분", "image": "images/3second try.png", "img_size": (130, 300), "location": "C 진열대"},
+    {"name": "원더볼링", "genre": ["패밀리", "덱스터리티"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "15분", "image": "images/bowling.png", "img_size": (130, 300), "location": "C 진열대"},
+    {"name": "토마토마토", "genre": ["패밀리", "파티", "순발력"], "players": ["3명", "4명", "5명 이상"], "display_players": "3~6명", "time": "20분", "image": "images/tomatomato.png", "img_size": (190, 280), "location": "C 진열대"},
+    {"name": "본파이어 파티", "genre": ["파티", "패밀리", "전략"], "players": ["2명", "3명", "4명"], "display_players": "2~4명", "time": "5분", "image": "images/fire.png", "img_size": (130, 300), "location": "C 진열대"},
+    {"name": "스카우트", "genre": ["패밀리", "전략"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~5명", "time": "20분", "image": "images/scout.png", "img_size": (190, 280), "location": "C 진열대"},
     {"name": "나인타일패닉", "genre": ["퍼즐", "패밀리", "순발력"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~5명", "time": "20분", "image": "images/ninetilespanic.png", "location": "C 진열대"},
-    {"name": "해저탐험 DEEP SEA", "genre": ["푸시 유어 럭", "패밀리", "전략"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "30분", "image": "images/deepsea.png", "location": "C 진열대"},
-    {"name": "가짜 예술가 뉴욕에 가다", "genre": ["블러핑", "파티", "추리"], "players": ["5명 이상"], "display_players": "5~10명", "time": "20분", "image": "images/newyork.png", "location": "C 진열대"},
-    {"name": "인사이더 레드", "genre": ["블러핑", "파티", "추리"], "players": ["4명", "5명 이상"], "display_players": "4~8명", "time": "15분", "image": "images/insiderred.png", "location": "C 진열대"},
-    {"name": "덤불속", "genre": ["패밀리", "파티", "추리"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~5명", "time": "20분", "image": "images/inthebush.png", "location": "C 진열대"},
+    {"name": "해저탐험 DEEP SEA", "genre": ["푸시 유어 럭", "패밀리", "전략"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~6명", "time": "30분", "image": "images/deepsea.png", "img_size": (190, 280), "location": "C 진열대"},
+    {"name": "가짜 예술가 뉴욕에 가다", "genre": ["블러핑", "파티", "추리"], "players": ["5명 이상"], "display_players": "5~10명", "time": "20분", "image": "images/newyork.png", "img_size": (190, 280), "location": "C 진열대"},
+    {"name": "인사이더 레드", "genre": ["블러핑", "파티", "추리"], "players": ["4명", "5명 이상"], "display_players": "4~8명", "time": "15분", "image": "images/insiderred.png", "img_size": (190, 280), "location": "C 진열대"},
+    {"name": "덤불속", "genre": ["패밀리", "파티", "추리"], "players": ["2명", "3명", "4명", "5명 이상"], "display_players": "2~5명", "time": "20분", "image": "images/inthebush.png", "img_size": (190, 280), "location": "C 진열대"},
     {"name": "코요테", "genre": ["블러핑", "파티", "추리"], "players": ["3명", "4명", "5명 이상"], "display_players": "3~10명", "time": "20분", "image": "images/coyote.png", "location": "B 진열대"},
 ]
 
@@ -131,9 +152,18 @@ def display_game_card(game, is_lucky=False):
             
             try:
                 img = Image.open(img_path)
-                target_size = game.get("img_size", (250, 300)) # 개별 크기 지정 없으면 기본 250x300
-                img_resized = img.resize(target_size)  
-                st.image(img_resized, use_container_width=True)
+                target_size = game.get("img_size", (250, 300))
+                img_resized = img.resize(target_size)
+    
+# 💡 [1] 가운데 정렬을 시작하는 상자 열기
+                st.markdown("<div style='display: flex; justify-content: center; align-items: center;'>", unsafe_allow_html=True)
+    
+# 💡 [2] 이미지 출력 (use_container_width=False 필수!)
+                st.image(img_resized, use_container_width=False)
+    
+# 💡 [3] 상자 닫기
+                st.markdown("</div>", unsafe_allow_html=True)
+
             except Exception:
                 st.error("이미지를 불러올 수 없습니다.")
             
